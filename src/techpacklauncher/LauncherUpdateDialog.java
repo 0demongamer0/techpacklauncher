@@ -73,7 +73,11 @@ public class LauncherUpdateDialog  extends JDialog {
      	lstatus = new TLabel();
      	lstatus.setBounds(2,2,w-4,24);
      	lstatus.setBackgroundImage(GUI.class.getResourceAsStream(labelimage));
+<<<<<<< HEAD
      	lstatus.setText("Pobieranie/Aktualizacja Paczki");
+=======
+     	lstatus.setText("Aktualizacja launcher");
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
      	lstatus.setHorizontalAlignment(TLabel.CENTER);
      	panel.add(lstatus);
      	
@@ -83,7 +87,11 @@ public class LauncherUpdateDialog  extends JDialog {
   	  	
   	  	
     	ldownload = new TButton();
+<<<<<<< HEAD
     	ldownload.setText("Wczytywanie");
+=======
+    	ldownload.setText("odświeżać");
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
     	ldownload.setBounds(2, 40, w-4, 25);
     	ldownload.addActionListener(new ActionListener() {
             @Override
@@ -99,7 +107,11 @@ public class LauncherUpdateDialog  extends JDialog {
     	
     	
     	later = new TButton();
+<<<<<<< HEAD
     	later.setText("Później");
+=======
+    	later.setText("później");
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
     	later.setBounds(2,65,w-4,23);
     	later.addActionListener(new ActionListener() {
  	               @Override

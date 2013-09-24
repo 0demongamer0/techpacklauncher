@@ -1,11 +1,20 @@
+<<<<<<< HEAD
 clientsnumber=2
+=======
+clientsnumber=3
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
 [launchclients]
 "Techpack 1.6.2",".techpack/runclients/techpack162",".techpack/runclients/techpack162/minecraft.jar","2","1"
 "Owocowy Sad",".techpack/runclients/owocowysad",".techpack/runclients/owocowysad/minecraft.jar","2","1"
 [downloadclients]
 ".techpack/packedclients"
+<<<<<<< HEAD
 "Techpack 1.6.2","http://techpack.pl/ssanie/tech1_6_2/techpack.zip",".techpack/runclients/techpack162"
 "Owocowy Sad","http://techpack.pl/ssanie/tech1_6_2/owocowysad.zip",".techpack/runclients/owocowysad"
+=======
+"Techpack 1.6.2","http://download.true-games.org/minecraft/clients/mc164.zip",".techpack/runclients/techpack162"
+"Owocowy Sad","http://download.true-games.org/minecraft/clients/mc162.zip",".techpack/runclients/owocowysad"
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
 [libs]
 "libraries/net/sf/jopt-simple/jopt-simple/4.5/jopt-simple-4.5.jar"
 "libraries/org/ow2/asm/asm-all/4.1/asm-all-4.1.jar"

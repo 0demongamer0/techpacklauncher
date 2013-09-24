@@ -27,8 +27,11 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+<<<<<<< HEAD
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
+=======
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
 import java.util.List;
 import java.util.Scanner;
 
@@ -52,7 +55,11 @@ public class GUI extends JPanel {
 	private GUI thisclass = this;
 	
 	public TTextField nickfield;
+<<<<<<< HEAD
 	public TComboBox ramfield;
+=======
+	public TTextField ramfield;
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
 	public TComboBox listclients; 
 	public TButton launch;
 	public TProgressBar pbar;
@@ -158,7 +165,11 @@ public class GUI extends JPanel {
     	 int inh = 20;
     	 nickfield = new TTextField();
     	 nickfield.setBounds(lnw,25,inw,inh);
+<<<<<<< HEAD
     	 nickfield.setText("Wpisz Nick");
+=======
+    	 nickfield.setText("NoNickName");
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
     	 nickfield.setHorizontalAlignment(TButton.CENTER);
     	 tifields.add(nickfield);
 
@@ -175,6 +186,7 @@ public class GUI extends JPanel {
        	 //Поле памяти
     	 int irw = 140;
     	 int irh = 20;
+<<<<<<< HEAD
     	 //ramfield = new TTextField();
     	 //ramfield.setBounds(lrw,45,irw,irh);
     	 //ramfield.setText("1024");
@@ -217,6 +229,12 @@ public class GUI extends JPanel {
          ramfield.setBounds(lrw,45,irw,irh);
          ramfield.setAlignmentY(JComboBox.CENTER_ALIGNMENT);
 
+=======
+    	 ramfield = new TTextField();
+    	 ramfield.setBounds(lrw,45,irw,irh);
+    	 ramfield.setText("400");
+      	 ramfield.setHorizontalAlignment(TButton.CENTER);
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
     	 tifields.add(ramfield);
     	 
     	 //Кнопка сохранить
@@ -252,7 +270,11 @@ public class GUI extends JPanel {
       	 //плашка объяснений
       	TLabel expbarset = new TLabel();
        	expbarset.setBounds(0,0,widgw,25);
+<<<<<<< HEAD
       	expbarset.setText("Wybierz Paczkę");
+=======
+      	expbarset.setText("wybór klienta");
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
       	expbarset.setHorizontalAlignment(TButton.CENTER);
     	expbarset.setBackgroundImage(GUI.class.getResourceAsStream(AllSettings.explainimage));
       	 
@@ -308,7 +330,11 @@ public class GUI extends JPanel {
     	 TLabel expbarset = new TLabel();
     	 expbarset.setBounds(0,0,widgw,25);
     	 expbarset.setBackgroundImage(GUI.class.getResourceAsStream(AllSettings.explainimage));
+<<<<<<< HEAD
     	 expbarset.setText("Pobieranie Paczek");
+=======
+    	 expbarset.setText("Pobieranie klientów");
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
     	 expbarset.setHorizontalAlignment(TLabel.CENTER);
     	 dc.add(expbarset);
     	 
@@ -322,7 +348,11 @@ public class GUI extends JPanel {
   	    listdownloads.addActionListener(new ActionListener() {
     		 @Override
              public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
     			 download.setText("Pobieranie Paczki");
+=======
+    			 download.setText("Pobieranie Klienta");
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
     			 pbar.setValue(0);
     			 download.setEnabled(true);
     		 }
@@ -335,7 +365,11 @@ public class GUI extends JPanel {
   	  
     	download = new TButton();
     	download.setBounds(0, 70, widgw, 25);
+<<<<<<< HEAD
     	download.setText("Pobierz Paczke");
+=======
+    	download.setText("Pobierz klienta");
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
     	download.setHorizontalAlignment(TButton.CENTER);
              	download.addActionListener(new ActionListener() {
              @Override
@@ -405,8 +439,12 @@ public class GUI extends JPanel {
              if ((new File(ps + File.separator + AllSettings.getLauncherConfigFolderPath()+ File.separator + "config")).exists()) {
                  Scanner inFile = new Scanner(new File(ps + File.separator + AllSettings.getLauncherConfigFolderPath()+ File.separator + "config"));
                  nickfield.setText(inFile.nextLine());
+<<<<<<< HEAD
                  ramfield.setSelectedItem(inFile.nextLine());
                  //ramfield.setSelectedIndex(Memory.getMemoryIndexFromId(Integer.parseInt(inFile.nextLine())));
+=======
+                 ramfield.setText(inFile.nextLine());
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
                  inFile.close();
              }
          } catch (Exception e) {
@@ -422,8 +460,12 @@ public class GUI extends JPanel {
     	 try {
     		 PrintWriter wrt = new PrintWriter(new File(ps+ File.separator + AllSettings.getLauncherConfigFolderPath()+File.separator+"config"));
     		 wrt.println(nickfield.getText());
+<<<<<<< HEAD
     		 wrt.println(ramfield.getSelectedItem().toString());
              //wrt.println(Memory.getIdFromMemoryIndex(ramfield.getSelectedItem().toString()));
+=======
+    		 wrt.println(ramfield.getText());
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
     		 wrt.flush();
     		 wrt.close();
     	 } catch (Exception e) {}

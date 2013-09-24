@@ -91,21 +91,37 @@ public class ClientUpdateThread extends Thread {
 			new File(packedclientto).delete();
 
 			// download packed zip
+<<<<<<< HEAD
 			gui.download.setText("Pobierz paczke");
 			filedownloader(urlfrom, packedclientto);
 
 			// delete old client
 			gui.download.setText("Usuń starą paczkę");
+=======
+			gui.download.setText("Pobierz klienta");
+			filedownloader(urlfrom, packedclientto);
+
+			// delete old client
+			gui.download.setText("Usuń stary klienta");
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
 			deleteDirectory(new File(unpackto));
 			new File(unpackto).mkdirs();
 
 			// unpack new cient
+<<<<<<< HEAD
 			gui.download.setText("Wypakuj paczkę");
+=======
+			gui.download.setText("Wypakuj klienta");
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
 			Zip zip = new Zip(gui);
 			zip.unpack(packedclientto, unpackto);
 
 			// show finish message
+<<<<<<< HEAD
 			gui.download.setText("Paczka jest zainstalowana");
+=======
+			gui.download.setText("klient jest zainstalowany");
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
 			gui.listdownloads.setEnabled(true);
 			
 			//recheck client

@@ -32,7 +32,11 @@ public class ClientLaunch {
 			// nickname
 			String nick = gui.nickfield.getText();
 			// RAM
+<<<<<<< HEAD
 			String mem = Integer.valueOf(gui.ramfield.getSelectedItem().toString()) + "M";
+=======
+			String mem = Integer.valueOf(gui.ramfield.getText()) + "M";
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
 			// minecraft launch version
 			int lvers = AllSettings.getClientLaunchVersionByName(gui.listclients.getSelectedItem().toString());
 			// location of jar file

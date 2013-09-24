@@ -136,14 +136,22 @@ public class AllSettings {
 	//folder structure 
 	//{folder}/Laucnher.jar - launcher location
 	//{folder}/version - launcher version
+<<<<<<< HEAD
 	private static String lupdateurlfolder = "http://i-demon.pl/javal/launcher/";
+=======
+	private static String lupdateurlfolder = "http://download.true-games.org/minecraft/launcher/";
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
 	
 	//folder in which configuration will be stored
 	private static String configfolder = ".techpack/configdata";
 
 	//main frame size
 	public static int w = 740;
+<<<<<<< HEAD
 	public static String lname = "Minecraft Launcher by DeMoN";
+=======
+	public static String lname = "True-games.org|MinecraftLauncher";
+>>>>>>> edc5842e0a91c2ae43615ebbc95033ca0bae6fbb
 	public static String icon = "images/icon.png";
     public static int h = 340;
     //images
