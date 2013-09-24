@@ -27,6 +27,8 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.management.ManagementFactory;
+import java.lang.management.OperatingSystemMXBean;
 import java.util.List;
 import java.util.Scanner;
 
@@ -50,7 +52,7 @@ public class GUI extends JPanel {
 	private GUI thisclass = this;
 	
 	public TTextField nickfield;
-	public TTextField ramfield;
+	public TComboBox ramfield;
 	public TComboBox listclients; 
 	public TButton launch;
 	public TProgressBar pbar;
@@ -173,10 +175,48 @@ public class GUI extends JPanel {
        	 //Поле памяти
     	 int irw = 140;
     	 int irh = 20;
-    	 ramfield = new TTextField();
-    	 ramfield.setBounds(lrw,45,irw,irh);
-    	 ramfield.setText("1024");
-      	 ramfield.setHorizontalAlignment(TButton.CENTER);
+    	 //ramfield = new TTextField();
+    	 //ramfield.setBounds(lrw,45,irw,irh);
+    	 //ramfield.setText("1024");
+      	 //ramfield.setHorizontalAlignment(TButton.CENTER);
+
+         ramfield = new TComboBox();
+
+         long maxMemory = 1024;
+         String architecture = System.getProperty("sun.arch.data.model", "32");
+         boolean bit64 = architecture.equals("64");
+
+         try {
+             OperatingSystemMXBean osInfo = ManagementFactory.getOperatingSystemMXBean();
+             if (osInfo instanceof com.sun.management.OperatingSystemMXBean) {
+                 maxMemory = ((com.sun.management.OperatingSystemMXBean) osInfo).getTotalPhysicalMemorySize() / 1024 / 1024;
+             }
+         } catch (Throwable t) {
+         }
+         maxMemory = Math.max(512, maxMemory);
+
+         if (maxMemory >= Memory.MAX_32_BIT_MEMORY && !bit64) {
+             ramfield.setToolTipText("<html>Wybierz ilość pamięci przydzielonej do Minecrafta<br/>" + "Masz więcej niż 1.5GB dostępnej pamięci, ale<br/>"
+                     + "żeby ją użyć musisz mieć java 64bit.</html>");
+         } else {
+             ramfield.setToolTipText("<html>Wybierz ilość pamięci przydzielonej do Minecrafta<br/>" + "Więcej to nie zawsze lepiej.<br/>"
+                     + "Więcej pamięci bardziej obciąża twój procesor.</html>");
+         }
+
+         if (!bit64) {
+             maxMemory = Math.min(Memory.MAX_32_BIT_MEMORY, maxMemory);
+         }
+         System.out.println("Wykryto maksymalną dostępną pamięć: " + maxMemory + " mb");
+
+         for (Memory mem : Memory.memoryOptions) {
+             if (maxMemory >= mem.getMemoryMB()) {
+                 ramfield.addItem(String.valueOf(mem.getMemoryMB()));
+             }
+         }
+
+         ramfield.setBounds(lrw,45,irw,irh);
+         ramfield.setAlignmentY(JComboBox.CENTER_ALIGNMENT);
+
     	 tifields.add(ramfield);
     	 
     	 //Кнопка сохранить
@@ -365,7 +405,8 @@ public class GUI extends JPanel {
              if ((new File(ps + File.separator + AllSettings.getLauncherConfigFolderPath()+ File.separator + "config")).exists()) {
                  Scanner inFile = new Scanner(new File(ps + File.separator + AllSettings.getLauncherConfigFolderPath()+ File.separator + "config"));
                  nickfield.setText(inFile.nextLine());
-                 ramfield.setText(inFile.nextLine());
+                 ramfield.setSelectedItem(inFile.nextLine());
+                 //ramfield.setSelectedIndex(Memory.getMemoryIndexFromId(Integer.parseInt(inFile.nextLine())));
                  inFile.close();
              }
          } catch (Exception e) {
@@ -381,7 +422,8 @@ public class GUI extends JPanel {
     	 try {
     		 PrintWriter wrt = new PrintWriter(new File(ps+ File.separator + AllSettings.getLauncherConfigFolderPath()+File.separator+"config"));
     		 wrt.println(nickfield.getText());
-    		 wrt.println(ramfield.getText());
+    		 wrt.println(ramfield.getSelectedItem().toString());
+             //wrt.println(Memory.getIdFromMemoryIndex(ramfield.getSelectedItem().toString()));
     		 wrt.flush();
     		 wrt.close();
     	 } catch (Exception e) {}
